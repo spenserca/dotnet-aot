@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text.Json.Serialization;
 using dotnet_aot;
 
@@ -14,6 +15,7 @@ builder.Services.AddGraphQLServer()
 var app = builder.Build();
 
 app.MapGraphQL();
+app.MapGet("/heartbeat", () => "Hello World");
 app.UseRouting();
 
 app.Run();
